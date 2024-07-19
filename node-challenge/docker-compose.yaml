@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.30-debian
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=fullcycle
+    security_opt:
+      - seccomp:unconfined # não utilizar em produção
+    networks:
+      - fullcycle_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  app:
+    build: 
+      context: node-app
+    networks:
+      - fullcycle_net
+    volumes:
+      - node-app/src:/usr/src/app
+    tty: true
+    ports: 
+      - "3000:3000"
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh # alternativa para o depends_on, mas existem relatos de problemas no ambiente Apple
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  dbdata:
+  node-app:    
+
+networks:
+  fullcycle_net:
+    driver: bridge
