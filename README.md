@@ -19,6 +19,13 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-w -s' -o fullcycle .
 ```
 O nome do programa compilado é definido pelo parâmetro -o.
 
+Para construir a imagem, executar os comandos abaixo na pasta go-challenge:
+
+```
+docker build -t fullcycle-rocks .
+docker run fullcycle-rocks
+```
+
 A pasta go-challenge possui o código deste desafio e a imagem pode ser executada pelo comando abaixo:
 
 ```
