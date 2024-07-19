@@ -8,9 +8,9 @@ A imagem foi criada em duas etapas, a primeira para compilar a aplicação com u
 
 Para alcançar esse objetivo, a linha de comando para chamar o Go precisa de algumas definições específicas:
 
-1. Desabilitar a CGO, ou seja, a funcionalidade que permite que programas em Go chamem rotinas e estruturas de dados em C (CGO_ENABLED=0)
+1. Desabilitar a **CGO**, ou seja, a funcionalidade que permite que programas em Go chamem rotinas e estruturas de dados em C (**CGO_ENABLED=0**)
 2. Definir o sistema operacional onde o aplicativo será executado (**GOOS=linux**)
-3. Utilizar as ldflags (linker flags) para remover informações de debug por meio (**flag -w**) e remover a tabela de símbolos (**flag -s**)
+3. Utilizar as **ldflags** (linker flags) para remover informações de debug por meio (**flag -w**) e remover a tabela de símbolos (**flag -s**)
 
 Desta forma o código é compilado com o seguinte comando:
 
