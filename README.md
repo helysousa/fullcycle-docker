@@ -1,6 +1,8 @@
 # Desafios do curso de Docker da Full Cycle
 
-## Desafio 1 - Criar uma imagem que, com base em um código Golang, escreva "Full Cycle rocks!". A imagem final deve ter menos que 2MB e ser publicada no Dockerhub.
+## Desafio 1 - Full Cycle rocks! em GoLang
+
+O objetivo desse desafio é criar uma imagem que, com base em um código Golang, escreva "Full Cycle rocks!". A imagem final deve ter menos que 2MB e ser publicada no Dockerhub.
 
 A imagem foi criada em duas etapas, a primeira para compilar a aplicação com um binário [estaticamente linkado]([https://pages.github.com/](https://en.wikipedia.org/wiki/Static_build)), ou seja, que não dependa de nada além de si para ser executado.
 
