@@ -40,3 +40,5 @@ docker run irvision/fullcycle-rocks:latest
 - Lista de nomes cadastrada no banco de dados.
 ```
 A aplicação deverá utilizar uma instância do Nginx funcionando como proxy reverso
+
+**EM DESENVOLVIMENTO**
